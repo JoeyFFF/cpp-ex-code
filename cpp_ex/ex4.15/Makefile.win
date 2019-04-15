@@ -1,0 +1,33 @@
+# Project: ex4.15
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = file1.o file2.o $(RES)
+LINKOBJ  = file1.o file2.o $(RES)
+LIBS =  -L"D:/Dev-Cpp/lib"  
+INCS =  -I"D:/Dev-Cpp/include" 
+CXXINCS =  -I"D:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/Dev-Cpp/include/c++/3.4.2"  -I"D:/Dev-Cpp/include" 
+BIN  = ex4.15
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ex4.15 all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "ex4.15" $(LIBS)
+
+file1.o: file1.cpp
+	$(CPP) -c file1.cpp -o file1.o $(CXXFLAGS)
+
+file2.o: file2.cpp
+	$(CPP) -c file2.cpp -o file2.o $(CXXFLAGS)
